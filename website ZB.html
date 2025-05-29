@@ -1,0 +1,751 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Zanuar Business Group</title>
+<style>
+@import url(https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400;600&family=Poppins:wght@600&display=swap);
+*{margin:0;padding:0;box-sizing:border-box}
+body,html{height:100%;font-family:Montserrat,sans-serif;background:url(https://digitalbisa.id/uploads/articles/teknologi-digital-sebagai-salah-satu-kendaraan-menuju-kemajuan-bangsa-PusEWcDLE1.jpg) no-repeat center center/cover;position:relative;color:#f5f1e9;overflow-x:hidden;-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,14,22,.92);backdrop-filter:blur(14px);z-index:-1}
+.container{max-width:100%;margin:0 auto;padding:15px;display:grid;grid-template-columns:1fr;gap:15px;background:rgba(10,14,22,.75);box-shadow:0 0 20px rgba(0,0,0,.7);min-height:100vh}
+header{display:flex;flex-direction:column;align-items:center;padding:15px 0;margin-bottom:15px;text-align:center;position:relative}
+.header-title {
+  font-family: Cinzel, serif;
+  font-size: 2rem; /* Larger size for the subtitle */
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #ff8a00, #ff0058, #e200ff, #3d77ff, #00c6ff);
+  background-size: 400% 400%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: gradientShift 4s ease infinite; /* Faster animation */
+  margin-bottom: 5px;
+}
+.header-subtitle {
+  font-family: Cinzel, serif;
+  font-size: 1.2rem; /* Smaller size for the main title */
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #ff8a00, #ff0058, #e200ff, #3d77ff, #00c6ff);
+  background-size: 400% 400%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: gradientShift 8s ease infinite;
+}
+@keyframes gradientShift{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+.business-section{background:rgba(255,255,255,.1);border-radius:12px;padding:15px;box-shadow:0 4px 12px rgba(0,0,0,.5);transition:all .3s ease;margin-bottom:20px}
+.business-section:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(0,0,0,.6)}
+.business-section h2{font-size:1.3rem;color:#ffdb8a;margin-bottom:12px;font-weight:600}
+.btn-toggle{background:0 0;border:2px solid #ffb347;color:#ffb347;padding:8px 15px;border-radius:30px;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .3s ease;width:100%;max-width:260px;margin-bottom:10px}
+.btn-toggle:hover{background:rgba(255,179,71,.2)}
+.content-list{display:none;font-size:.9rem;line-height:1.5;padding-top:8px}
+.content-list.show{display:block}
+.content-list h3{font-size:1.1rem;color:#ffdb8a;margin-bottom:8px}
+.content-list ul{margin-left:20px;margin-bottom:10px}
+.section-note{font-size:.8rem;color:#ffd88e;margin-top:8px;font-style:italic}
+.testimonial-wrapper{background:rgba(0,0,0,.7);padding:20px 15px;margin-top:20px;border-top:1px solid rgba(255,219,138,.2);border-bottom:1px solid rgba(255,219,138,.2)}
+.social-buttons-container{display:flex;flex-direction:column;gap:10px;margin-bottom:20px;align-items:center}
+/* Kotak kirim testimoni */
+.kirim-testimoni-box {
+  background: #222;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  color: #fff;
+  max-width: 400px;
+}
+#testimoni-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+#testimoni-textarea {
+  width: 100%;
+  height: 80px;
+  padding: 8px;
+  border-radius: 4px;
+  border: none;
+  resize: vertical;
+}
+#kirim-testimoni-btn {
+  padding: 10px;
+  background-color: #ffb347;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+#kirim-testimoni-btn:hover {
+  background-color: #ff9e1f;
+}
+/* Tombol Instagram dan WhatsApp */
+#instagram-button, #wa-button {
+  border-radius:30px;
+  padding:10px 20px;
+  font-size:.9rem;
+  font-weight:600;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  width:100%;
+  max-width:220px;
+  transition:all .3s ease;
+}
+#instagram-button{border:2px solid #ff69b4;color:#ff69b4;background:0 0}
+#instagram-button:hover{background:#ff69b4;color:#000}
+#wa-button{border:2px solid #00ff2a;color:#00ff2a;background:0 0}
+#wa-button.active,#wa-button:hover{background:#00ff2a;color:#000}
+
+#testimonial-section h2{font-size:1.5rem;color:#ffdb8a;margin-bottom:15px;text-align:center}
+#testimonial-container{background:rgba(0,0,0,.5);padding:15px;border-radius:8px}
+#testimonial-text{font-style:italic;margin-bottom:10px}
+#testimonial-name{color:#ffb347;font-weight:600;display:block}
+@media (min-width:768px){
+  .container{max-width:1100px;padding:30px;gap:25px}
+  .header-title{font-size:2.5rem}
+  .business-section{padding:20px;border-radius:16px}
+  .business-section h2{font-size:1.5rem}
+  .btn-toggle{padding:10px 25px;font-size:1rem}
+  .social-buttons-container{flex-direction:row;justify-content:center}
+  #testimonial-section h2{font-size:2rem}
+}
+.source-code-message {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.95);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  padding: 20px;
+  backdrop-filter: blur(5px);
+}
+.source-code-message h2 {
+  color: #ffb347;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+.source-code-message p {
+  max-width: 600px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+.source-code-message .contact-info {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+.source-code-message .contact-info p {
+  margin-bottom: 10px;
+}
+.source-code-message button {
+  padding: 12px 30px;
+  background: #ffb347;
+  color: black;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+.source-code-message button:hover {
+  background: #ff9e1f;
+  transform: scale(1.05);
+}
+
+/* Hamburger Menu Styles */
+.menu-btn {
+  position: absolute;
+  top: 40px; /* Move further down */
+  right: 25px; /* Keep left adjustment */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.menu-btn span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #ffb347;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.menu-btn.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-btn.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  max-width: 300px;
+  height: 100%;
+  background: rgba(10, 14, 22, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 999;
+  transition: right 0.3s ease;
+  padding: 70px 20px 20px;
+  overflow-y: auto;
+}
+
+.menu-overlay.active {
+  right: 0;
+}
+
+.menu-item {
+  padding: 15px;
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.menu-item:hover {
+  background: rgba(255, 179, 71, 0.2);
+}
+
+/* Page Styles */
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Home Page */
+#home-page {
+  display: block;
+}
+
+/* Profile Page */
+#profile-page {
+  background: rgba(255,255,255,.1);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+#profile-page p, #profile-page ul {
+  margin-bottom: 15px; /* Add spacing between paragraphs and lists */
+}
+#profile-page ul {
+  padding-left: 20px; /* Add padding for list indentation */
+}
+
+/* Result Page */
+#result-page {
+  background: rgba(255,255,255,.1);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Location Page */
+#location-page {
+  background: rgba(255,255,255,.1);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Contact Page */
+#contact-page {
+  background: rgba(255,255,255,.1);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .menu-overlay {
+    max-width: 400px;
+  }
+}
+</style>
+</head>
+<body>
+<!-- Hamburger Menu Button -->
+<div class="menu-btn" onclick="toggleMenu()">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- Menu Overlay -->
+<div class="menu-overlay" id="menuOverlay">
+  <div class="menu-item" onclick="showPage('home-page')">
+    HOME
+  </div>
+  
+  <div class="menu-item" onclick="showPage('profile-page')">
+    PROFILE
+  </div>
+  
+  <div class="menu-item" onclick="showPage('result-page')">
+    RESULT
+  </div>
+  
+  <div class="menu-item" onclick="showPage('location-page')">
+    LOCATION
+  </div>
+  
+  <div class="menu-item" onclick="showPage('contact-page')">
+    CONTACT
+  </div>
+</div>
+
+<div class="container" role="main">
+  <!-- Home Page (Default) -->
+  <div id="home-page" class="page active">
+    <header>
+      <div class="header-title">ZB n ME</div>
+    </header>
+    <section aria-label="ZB Scribd Tech" class="business-section">
+      <h2>ZB Scribd Tech</h2>
+      <button onclick='toggleContent("zbscript-list",this)' class="btn-toggle">Tampilkan Daftar Layanan</button>
+      <div class="content-list" id="zbscript-list">
+        <h3>Paket Skripsi</h3>
+        <ul>
+          <li>BAB 1 (Latar Belakang)
+          <li>BAB 2 (Tinjauan Pustaka)
+          <li>BAB 3 (Kerangka Pemikiran)
+          <li>BAB 4 (Metode Penelitian)
+          <li>BAB 5 (Penyajian Data)
+          <li>BAB 6 (Pembahasan)
+          <li>BAB 7 (Penutup)
+          <li>FULL BAB
+        </ul>
+        <h3>Paket Tugas</h3>
+        <ul>
+          <li>Mendeley
+          <li>Parafrase
+          <li>Revisi Skripsi
+          <li>Power Point / Excel / Word
+          <li>Editing
+          <li>Pengetikan
+          <li>Makalah / Proposal / Jurnal
+        </ul>
+               <h3>Paket Code</h3>
+        <ul>
+          <li>Website
+          <li>Aplikasi
+          <li>IOT / Robotic
+        </ul>
+        <p class="section-note">Include: Power Point + Free Revisi 3x + Bimbingan (Online Recommended)<br>Pengerjaan sesuai deadline dan peraturan yang diminta<br>Pembayaran DP Bebas/ Lunas Awal/Akhir<br>Slot hanya 7 orang perbulan
+      </div>
+    </section>
+    <section aria-label="ZB Snack n Food" class="business-section">
+      <h2>ZB Snack n Food</h2>
+      <button onclick='toggleContent("zbsnack-list",this)' class="btn-toggle">Tampilkan Daftar Menu</button>
+      <div class="content-list" id="zbsnack-list">
+        <h3>Snack <small>(Order minimal Rp 5.000)</small></h3>
+        <ul>
+          <li>Jamur Crispy
+          <li>Usus Crispy
+          <li>Tahu Crispy
+          <li>Basreng Chili Oil
+          <li>Mie Lidi Asin / Pedas
+          <li>Mie Kriting Asin / Pedas
+          <li>Kripik Lumpia
+          <li>Makaroni Kerang
+          <li>Sosis Crispy
+          <li>Dimsum Chili Oil
+        </ul>
+        <h3>Food</h3>
+        <ul>
+          <li>Bakso
+          <li>Mie Ayam
+          <li>Mie Jamur
+          <li>Mie Pangsit
+          <li>Seblak
+          <li>Ayam Geprek
+          <li>Lele Geprek
+          <li>Nasi 3T (Tahu + Tempe + Telor)
+        </ul>
+        <h3>Drink</h3>
+        <ul>
+          <li>Pop Ice
+          <li>Marimas
+          <li>Teh
+          <li>Kopi
+          <li>Kopi Susu
+          <li>Susu
+          <li>Nutri Sari
+          <li>Teh Sisri
+          <li>Joshua
+          <li>Kubisu (Kukubima + Susu)
+          <li>Nutrisu (Nutrisari + Susu)
+        </ul>
+      </div>
+    </section>
+    <section aria-label="ZB Affiliate" class="business-section">
+      <h2>ZB Affiliate Marketing</h2>
+      <button onclick='toggleContent("zbaffiliatemarketing-list",this)' class="btn-toggle">Tampilkan Daftar Layanan</button>
+      <div class="content-list" id="zbaffiliatemarketing-list">
+        <h3>Promotion</h3>
+        <ul>
+          <li>Handphone
+          <li>Laptop
+          <li>Televisi
+          <li>Kulkas
+          <li>Mesin Cuci
+          <li>Speaker Aktif
+          <li>Printer
+        </ul>
+        <h3>Gadai <small>(Bunga maksimal 5%)</small></h3>
+        <ul>
+          <li>Tabung LPG
+          <li>Handphone
+          <li>Laptop
+          <li>Pinjaman Ringan
+        </ul>
+      </div>
+    </section>
+
+  </section>
+    <section aria-label="ZB Affiliate" class="business-section">
+      <h2>ZB Comp</h2>
+      <button onclick='toggleContent("zbcomp-list",this)' class="btn-toggle">Tampilkan Daftar Layanan</button>
+      <div class="content-list" id="zbcomp-list">
+        <h3>Pelayanan</h3>
+        <ul>
+          <li>Pulsa dan Kuota
+          <li>Isi Saldo E-Wallet (Admin <50k = 2k, Admin >50k = 3k)
+          <li>Token PLN
+          <li>Pembayaran Angsuran
+          <li>Transfer (Maks 500.000 / Admin 5.000)
+          <li>Tarik Tunai (Maks 500.000 / Admin 5.000)
+        </ul>
+            </section>
+
+    <div class="testimonial-wrapper">
+      <div class="social-buttons-container">
+        <!-- Kotak kirim testimoni -->
+        <div class="kirim-testimoni-box">
+          <p>Kirim Testimoni Anda</p>
+          <form id="testimoni-form" onsubmit="sendTestimoni(); return false;">
+            <textarea id="testimoni-input" placeholder="Tulis testimoni Anda di sini..." required></textarea>
+            <button type="submit" id="kirim-testimoni-btn">Kirim</button>
+          </form>
+        </div>
+        <!-- Tombol Instagram -->
+        <button onclick='openInstagram()' id="instagram-button"><i class="fab fa-instagram"></i> Instagram</button>
+        <!-- Tombol WhatsApp -->
+        <button onclick='openWhatsApp()' id="wa-button"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+      </div>
+      <section id="testimonial-section">
+        <h2>TESTIMONI</h2>
+        <div id="testimonial-container">
+          <p id="testimonial-text"></p>
+          <strong id="testimonial-name"></strong>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Profile Page -->
+  <div id="profile-page" class="page">
+    <header>
+      <div class="header-title">PROFILE</div>
+    </header>
+    <h2>Tentang</h2>
+    <p>ZB n ME adalah kumpulan bisnis yang bergerak di berbagai bidang, termasuk jasa akademik, makanan, dan pemasaran. Kami berkomitmen memberikan layanan terbaik dengan kualitas premium.</p>
+    <h3>Visi</h3>
+    <p>Menjadi solusi terpercaya untuk kebutuhan akademik dan kuliner masyarakat.</p>
+    <h3>Misi</h3>
+    <ul>
+      <li>Memberikan layanan berkualitas dengan harga terjangkau</li>
+      <li>Memberikan pelayanan yang ramah dan profesional</li>
+      <li>Mengutamakan kepuasan pelanggan</li>
+      <li>Terus berinovasi dalam produk dan layanan</li>
+    </ul>
+    <h3>Sejarah</h3>
+    <p>
+      <strong>ZANUAR BUSINESS n MOTIVATED ENTREPRENEURS</strong> memiliki perjalanan yang penuh inspirasi. Awalnya didirikan pada tahun 2017 dengan nama <strong>AdKyAr Comp</strong>, bisnis ini memulai langkahnya sebagai jual beli aksesoris HP dan Laptop serta jasa servis HP dan Laptop. Namun, usaha ini sempat berhenti.
+    </p>
+    <p>
+      Pada tahun 2021, bisnis ini bangkit kembali dengan memulai usaha baru di bidang snack dan food, menyediakan berbagai menu lezat dan terjangkau. Seiring waktu, pada tahun 2023, kami memperluas layanan dengan membuka jasa joki tugas dan skripsi, yang mendapatkan kepercayaan besar dari pelanggan. Tidak lama setelah itu, kami juga memperkenalkan jasa affiliate untuk membantu pelanggan dengan kebutuhan finansial mereka.
+    </p>
+    <p>
+      Dengan semangat baru dan inovasi tanpa henti, kami memperkenalkan identitas baru sebagai <strong>ZB n ME (Zanuar Business n Motivated Entrepreneurs)</strong>.
+    </p>
+    <button onclick="showPage('home-page')" class="btn-toggle">Kembali ke Beranda</button>
+  </div>
+
+  <!-- Result Page -->
+  <div id="result-page" class="page">
+    <header>
+      <div class="header-title">HASIL KARYA</div>
+    </header>
+    <h2>Mahakarya</h2>
+    <p>Beberapa pencapaian dan hasil kerja kami:</p>
+    <div class="business-section">
+      <h3>ZB Scribd Tech</h3>
+      <ul>
+        <li>200+ skripsi/tugas yang berhasil diselesaikan</li>
+        <li>30+ website/aplikasi yang dikembangkan</li>
+        <li>98% tingkat kepuasan pelanggan</li>
+      </ul>
+    </div>
+    <div class="business-section">
+      <h3>ZB Snack n Food</h3>
+      <ul>
+        <li>400+ pelanggan setia</li>
+        <li>4.8/5 rating di platform pemesanan online</li>
+        <li>10+ menu unggulan</li>
+      </ul>
+    </div>
+    <div class="business-section">
+      <h3>ZB Affiliate Marketing</h3>
+      <ul>
+        <li>50+ produk elektronik berhasil dipasarkan</li>
+        <li>Transaksi senilai total Rp 20 juta+</li>
+        <li>5+ mitra usaha</li>
+      </ul>
+    </div>
+
+<div class="business-section">
+      <h3>ZB Comp</h3>
+      <ul>
+        <li>200+ Pelanggan Pulsa dan Kuota</li>
+        <li>50+ Transaksi E-Wallet</li>
+        <li>35+ Layanan Transfer dan Tarik Tunai</li>
+      </ul>
+    </div>
+
+    <button onclick="showPage('home-page')" class="btn-toggle">Kembali ke Beranda</button>
+  </div>
+
+  <!-- Location Page -->
+  <div id="location-page" class="page">
+    <header>
+      <div class="header-title">LOKASI</div>
+    </header>
+    <h2>Temukan Kami</h2>
+    <div class="business-section">
+      <h3>Alamat</h3>
+      <p>Jl. Wisnuwardhana, Tumpang, Kabupaten Malang, Jawa Timur</p>
+      <p>Jam Operasional: Setiap Hari, Hanya dengan janji temu</p>
+    </div>
+    <div class="business-section">
+      <h3>Peta Lokasi</h3>
+      <div style="margin-top: 15px;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.123456789012!2d112.7123456789!3d-7.123456789012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e62e7f7a3d49%3A0x1e5e5b5b5b5b5b5b!2sJl.%20Wisnuwardhana%2C%20Tumpang%2C%20Kabupaten%20Malang%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1620000000000!5m2!1sid!2sid" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+    <button onclick="showPage('home-page')" class="btn-toggle">Kembali ke Beranda</button>
+  </div>
+
+  <!-- Contact Page -->
+  <div id="contact-page" class="page">
+    <header>
+      <div class="header-title">HUBUNGI KAMI</div>
+    </header>
+    <h2>Kontak</h2>
+    <div class="business-section">
+      <h3>Customer Service</h3>
+      <p>WhatsApp: 0896-8696-0526</p>
+      <p>Telepon: (0896) 8696 0526</p>
+      <p>Email: rizkyzanuar2@gmail.com</p>
+    </div>
+    <div class="business-section">
+      <h3>Sosial Media</h3>
+      <p>Instagram: @_zans.rzky</p>
+      <p>Facebook: Muhammad Rizky Zanuar</p>
+      <p>Tiktok: @_zans.rzky</p>
+    </div>
+    <div class="business-section">
+      <h3>Form Kontak</h3>
+      <form id="contact-form" style="display: grid; gap: 10px;" onsubmit="sendWhatsAppMessage(); return false;">
+        <input type="text" id="contact-name" placeholder="Nama Anda" style="padding: 10px; border-radius: 5px; border: none;" required>
+        <textarea id="contact-purpose" placeholder="Tujuan Anda" style="padding: 10px; border-radius: 5px; border: none; min-height: 100px;" required></textarea>
+        <button type="submit" style="padding: 10px; background: #ffb347; border: none; border-radius: 5px; cursor: pointer;">Kirim Pesan</button>
+      </form>
+    </div>
+    <button onclick="showPage('home-page')" class="btn-toggle">Kembali ke Beranda</button>
+  </div>
+</div>
+
+<script>
+// Toggle menu function
+function toggleMenu() {
+  const menuBtn = document.querySelector('.menu-btn');
+  const menuOverlay = document.getElementById('menuOverlay');
+  
+  menuBtn.classList.toggle('active');
+  menuOverlay.classList.toggle('active');
+}
+
+// Show page function
+function showPage(pageId) {
+  // Hide all pages
+  document.querySelectorAll('.page').forEach(page => {
+    page.classList.remove('active');
+  });
+
+  // Find the target page
+  const targetPage = document.getElementById(pageId);
+  if (targetPage) {
+    // Show selected page
+    targetPage.classList.add('active');
+
+    // Scroll directly to the target page for specific IDs
+    if (['profile-page', 'result-page', 'location-page', 'contact-page'].includes(pageId)) {
+      targetPage.scrollIntoView({ behavior: 'auto' });
+    } else {
+      // Smooth scroll for other pages
+      const targetPosition = targetPage.offsetTop;
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    }
+
+    // Close menu after a short delay to ensure smooth navigation
+    setTimeout(() => {
+      toggleMenu();
+    }, 300); // Adjust delay as needed
+  } else {
+    console.error(`Page with id "${pageId}" not found.`);
+  }
+}
+
+// Existing functions
+function toggleContent(e,t){const n=document.getElementById(e);n.classList.contains("show")?(n.classList.remove("show"),t.textContent=t.textContent.replace("Tutup","Tampilkan")):(document.querySelectorAll(".content-list").forEach(e=>e.classList.remove("show")),document.querySelectorAll(".btn-toggle").forEach(e=>{e!==t&&e.textContent.includes("Tutup")&&(e.textContent=e.textContent.replace("Tutup","Tampilkan"))}),n.classList.add("show"),t.textContent=t.textContent.replace("Tampilkan","Tutup"))}
+function toggleWhatsApp(){document.getElementById("wa-button").classList.toggle("active")}
+function openInstagram(){window.open("https://instagram.com/_zans.rzky","_blank");}
+function openWhatsApp(){
+  const nomor = "6289686960526";
+  const waktu = new Date();
+  const jam = waktu.getHours();
+  let pesan = "Selamat pagi";
+  if(jam >= 12 && jam < 15) pesan = "Selamat siang";
+  else if(jam >= 15 && jam < 18) pesan = "Selamat sore";
+  else if(jam >= 18 || jam < 4) pesan = "Selamat malam";
+  const url = `https://wa.me/${nomor}?text=${encodeURIComponent(pesan)}`;
+  window.open(url, "_blank");
+}
+function sendTestimoni() {
+  const isiTestimoni = document.getElementById('testimoni-input').value;
+  const subject = encodeURIComponent("Testimoni Zanuar Business");
+  const body = encodeURIComponent(isiTestimoni);
+  window.location.href = `mailto:rizkyzanuar2@gmail.com?subject=${subject}&body=${body}`;
+}
+
+// Slider testimoni otomatis
+const e=[
+  {text:"Awalnya ragu pakai jasa joki, tapi ternyata ZB Scholar Tech beneran ngerti kebutuhan aku. Revisi dikit aja langsung acc dosen, worth it banget!",name:"Rizal Fauzi"},
+  {text:"Gue sibuk kerja jadi ga sempet ngerjain skripsi. Alhamdulillah pake jasa ZB bisa lulus tepat waktu, pembimbing juga puas sama hasilnya.",name:"Dinda Maharani"},
+  {text:"Yang ngerjain emang expert di bidangnya. Bahasanya akademik banget, formatnya rapi, revisi dikit langsung bisa sidang.",name:"Arif Budiman"},
+  {text:"Basreng sama dimsumnya nagih banget! Pedesnya pas, harganya juga murmer buat kantong kaum rebahan wkwk.",name:"Bima Satria"},
+  {text:"Langganan order mie ayam disini, porsinya gede dan rasanya enak. Cocok buat yang lagi ngirit dan malas masak.",name:"Siti Nurhaliza"},
+  {text:"Jamur crispy sama sosisnya juara! Tiap ada tugas kelompok pasti order ini buat temen begadang.",name:"Fajar Setiawan"},
+  {text:"Baru pertama kali gadai laptop disini, prosesnya cepet dan bunganya ringan. Recommended banget!",name:"Aditya Pratama"},
+  {text:"Laptop temen saya mau dijual tapi ga ada waktu promosi. Pas titip ke ZB Affiliate, eh dalam 3 hari langsung laku! Fee jasanya worth it banget, next kali mau jual HP juga mau pake jasa ini lagi.",name:"Rina Marlina"},
+  {text:"Web perusahaan aku dibikin ZB, desainnya modern dan fiturnya lengkap. Pelayanannya ramah dan fast respon!",name:"Hendra Kurniawan"},
+  {text:"Aplikasi kasir untuk UKMku dibuat tim ZB. Meski budget pas-pasan, hasilnya profesional banget.",name:"Wulan Sari"},
+  {text:"Website absensi dikantor saya dibuatkan oleh tim ZB alhasil sampai sekarang dipakai dan sangat berguna sekali, recomended pokoknya",name:"Agus Salim"}
+];
+let t=0;
+function n(){
+  const n=e[t];
+  document.getElementById("testimonial-text").textContent=`"${n.text}"`;
+  document.getElementById("testimonial-name").textContent=`- ${n.name}`;
+  t=(t+1)%e.length;
+}
+n();
+setInterval(n,3000);
+
+// Source code message popup
+(function() {
+  'use strict';
+  let e=false;
+  const t=()=>{const t=window.outerWidth-window.innerWidth>160,h=window.outerHeight-window.innerHeight>160;if((t||h)&&!e){e=true,showSourceCodeMessage()}else if(!t&&!h&&e){e=false}};
+  setInterval(t,500);
+  window.addEventListener("resize",t);
+  document.addEventListener("keydown",function(e){(e.ctrlKey&&e.shiftKey&&(e.key==="I"||e.key==="J"||e.key==="C")||e.key==="F12")&&(e.preventDefault(),showSourceCodeMessage())});
+  document.addEventListener("contextmenu",function(e){e.preventDefault();showSourceCodeMessage();return false});
+  const n=new Function("debugger");
+  setInterval(()=>{try{n()}catch(e){if(e.message.includes("debugger"))showSourceCodeMessage()}},1000);
+})();
+function showSourceCodeMessage(){
+  if(document.querySelector('.source-code-message'))return;
+  const e=document.createElement('div');
+  e.className='source-code-message';
+  e.innerHTML=`<h2>Hayo, mau ngapain? 😊</h2><p></p><div class="contact-info"><p><i class="fab fa-whatsapp"></i> WA: 089686960526</p><p><i class="fab fa-instagram"></i> IG: @_zans.rzky</p></div><button onclick="this.parentElement.remove()">Tutup</button>`;
+  document.body.appendChild(e);
+  document.addEventListener("keydown",blockKeys,true);
+}
+function blockKeys(e){e.stopPropagation();e.preventDefault();}
+document.addEventListener("click",function(e){
+  if(e.target.closest('.source-code-message button')){
+    const t=document.querySelector('.source-code-message');
+    if(t)t.remove();
+    document.removeEventListener("keydown",blockKeys,true);
+  }
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', function(event) {
+  const menuBtn = document.querySelector('.menu-btn');
+  const menuOverlay = document.getElementById('menuOverlay');
+  
+  if (!menuBtn.contains(event.target) && !menuOverlay.contains(event.target)) {
+    menuBtn.classList.remove('active');
+    menuOverlay.classList.remove('active');
+  }
+});
+
+function sendWhatsAppMessage() {
+  const name = document.getElementById('contact-name').value;
+  const purpose = document.getElementById('contact-purpose').value;
+  const message = `NAMA: ${name}, TUJUAN: ${purpose}`;
+  const whatsappNumber = "6289686960526";
+  const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+  window.open(url, "_blank");
+}
+</script>
+<!-- Font Awesome -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+<!-- Footer -->
+<footer style="text-align:center; padding:20px; color:#fff; background-color:#000;">
+  &copy; 2024 Zanuar Business. All rights reserved.
+</footer>
+</body>
+</html>
